@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Consulta extends Model
+class Cuestionario extends Model
 {
     protected $fillable = [
-        'cntPcnts', 'NomEsp', 'tipoCons', 'estado'
+        'id_user', 'edad', 'id_color',
     ];
 }

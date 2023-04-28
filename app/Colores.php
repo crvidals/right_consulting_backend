@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Paciente extends Model
+class Colores extends Model
 {
     protected $fillable = [
-        'nombre', 'edad', 'tipo_paciente', 'num_historia_clinica'
+        'nombre', 'codigo_hexadecimal',
     ];
 }

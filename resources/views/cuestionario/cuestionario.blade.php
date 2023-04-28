@@ -5,42 +5,38 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Nueva Consulta</div>
+                <div class="card-header">Cuestionario</div>
 
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('ingresarconsulta') }}">
+                    <form method="POST" action="{{ route('respuesta') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="doc" class="col-md-4 col-form-label text-md-right">Doctor</label>
+                            <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
                             <div class="col-md-6">
-                                <select name="doc" id="doc" class="form-control">
-                                    <option value="1">Doctor Pediatría</option>
-                                    <option value="2">Doctor Urgencia</option>
-                                    <option value="3">Doctor CGI</option>
+                                <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ Auth::user()->name }}" disabled autocomplete="nombre">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="edad" class="col-md-4 col-form-label text-md-right">Edad</label>
+                            <div class="col-md-6">
+                                <select name="edad" id="edad" class="form-control">
+                                    @for ($i = 1; $i < 99; $i++)
+                                    <option value="{{$i}}">{{$i}}</option>
+                                    @endfor
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="paciente" class="col-md-4 col-form-label text-md-right">Paciente</label>
+                            <label for="edad" class="col-md-4 col-form-label text-md-right">Color Favorito</label>
                             <div class="col-md-6">
-                                <select name="paciente" id="paciente" class="form-control">
-                                    @foreach ($pacientes as $p)
-                                    <option value="{{ $p->id }}">{{ $p->nombre }}</option>
+                                <select name="id_color" id="id_color" class="form-control">
+                                    @foreach ($colores as $p)
+                                    <option value="{{ $p->codigo_hexadecimal }}">{{ $p->nombre }}</option>
                                     @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="tcon" class="col-md-4 col-form-label text-md-right">Tipo Consulta</label>
-                            <div class="col-md-6">
-                                <select name="tcon" id="tcon" class="form-control">
-                                    <option value="1">Pediatría</option>
-                                    <option value="2">Urgencia</option>
-                                    <option value="3">CGI</option>
                                 </select>
                             </div>
                         </div>

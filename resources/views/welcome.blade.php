@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>...:::Horas Médicas:::...</title>
+        <title>...:::Prueba Técnica Right Consulting:::...</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registrarse</a>
                         @endif
                     @endauth
                 </div>
@@ -81,14 +81,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                Horas Médicas
+                Prueba Técnica Right Consulting
                 </div>
 
                 <div class="links">
                     <a href="{{ url('/home') }}">Home</a>
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
-                    <a href="{{ route('nuevopaciente') }}">Ingresar Paciente</a>
+                    <a href="{{ route('login') }}">Ingresar</a>
+                    <a href="{{ route('register') }}">Registrarse</a>
                 </div>
             </div>
         </div>

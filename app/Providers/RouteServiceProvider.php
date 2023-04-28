@@ -76,5 +76,27 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
+
+            Route::group([
+                'middleware' => ['api', 'cors'],
+                'namespace' => $this->namespace,
+                'prefix' => 'api',
+            ], function ($router) {
+                //Add you routes here, for example:
+                Route::apiResource('/all_respuestas','ApiController');
+                Route::apiResource('/respuestas_por_día','ApiController');
+                Route::apiResource('/all_respuestas','ApiController');
+                Route::apiResource('/colores','ApiController');
+                Route::apiResource('/colores_edad','ApiController');
+
+                /*
+                Route::get('/all_respuestas', 'ApiController@AllRespuestas');
+                Route::get('/respuestas_por_día', 'ApiController@RespuestasPorDia');
+                Route::get('/edades', 'ApiController@FrecuenciaEdades');
+                Route::get('/colores', 'ApiController@FrecuenciaColores');
+                Route::get('/colores_edad', 'ApiController@FrecuenciaColorPorEdad')
+                 */
+            });
+
     }
 }
